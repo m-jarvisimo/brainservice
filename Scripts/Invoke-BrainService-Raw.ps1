@@ -193,19 +193,20 @@ try {
 
         $body = $poll
         $status = Get-BrainServiceResultStatus -Body $body
-        $intents = Get-BrainServiceResultIntents -Body $body
+        $intents = @($(Get-BrainServiceResultIntents -Body $body))
+        $intentCount = @($intents).Count
         $withId = @($intents | Where-Object { Get-BrainServiceIntentResultId -Intent $_ }).Count
-        $signature = '{0}|{1}' -f $intents.Count, $withId
+        $signature = '{0}|{1}' -f $intentCount, $withId
 
         $pollHistory += [pscustomobject]@{
             Poll      = $i + 1
             Status    = $status
-            Intents   = $intents.Count
+            Intents   = $intentCount
             WithId    = $withId
             Signature = $signature
         }
 
-        if ($status -eq '2' -and $withId -eq $intents.Count) {
+        if ($status -eq '2' -and $withId -eq $intentCount) {
             if ($signature -eq $lastSignature) {
                 $stable++
             }
