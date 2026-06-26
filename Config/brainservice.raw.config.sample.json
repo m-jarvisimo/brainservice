@@ -7,6 +7,7 @@
     "DomainId": "",
     "TafEndpoint": "YOUR_ADT_ENDPOINT",
     "TafPasskey": "REPLACE_ME",
+    "AdtColumns": [],
     "IntentColumns": [],
     "MaxExecuteNIColumns": 64,
     "PollAttempts": 30,
