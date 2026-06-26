@@ -1,0 +1,20 @@
+{
+  "NetBrain": {
+    "BaseUrl": "http://netbrain.example.com",
+    "Username": "api_user",
+    "Password": "REPLACE_ME",
+    "TenantId": "",
+    "DomainId": "",
+    "TafEndpoint": "YOUR_ADT_ENDPOINT",
+    "TafPasskey": "REPLACE_ME",
+    "IntentColumns": [],
+    "MaxExecuteNIColumns": 64,
+    "PollAttempts": 30,
+    "PollSeconds": 10,
+    "StablePolls": 2
+  },
+  "Output": {
+    "WriteJsonFile": true,
+    "Directory": "E:\\BrainService\\Output"
+  }
+}
