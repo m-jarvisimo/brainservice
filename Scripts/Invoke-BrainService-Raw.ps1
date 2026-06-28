@@ -33,7 +33,7 @@ function Get-BrainServiceRawConfig {
 
     return Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
 }
-
+#base api structure called by api functions
 function Invoke-BrainServiceApi {
     param(
         [Parameter(Mandatory)][string]$BaseUrl,
@@ -63,7 +63,7 @@ function Invoke-BrainServiceApi {
         throw "HTTP $Method $uri failed: $($_.Exception.Message)"
     }
 }
-
+#Retrieve and store auth token for future api calls
 function Get-BrainServiceToken {
     param([Parameter(Mandatory)]$Config)
 
@@ -77,7 +77,7 @@ function Get-BrainServiceToken {
 
     throw "NetBrain login did not return a token: $(ConvertTo-PrettyJson $login)"
 }
-
+#close authentication session to release NetBeans seat
 function Stop-BrainServiceToken {
     param(
         [Parameter(Mandatory)][string]$BaseUrl,
